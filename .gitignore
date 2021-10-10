@@ -1,0 +1,7 @@
+.php_cs.cache
+.rr.yml
+app.car-service.service
+vendor
+phpcs.xml
+config/application.php.local
+config/definitions.php.local

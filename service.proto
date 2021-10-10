@@ -1,0 +1,803 @@
+syntax = "proto3";
+
+package CarService;
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "protoc-gen-swagger/options/annotations.proto";
+
+option php_namespace = "Autorus\\CarService\\Grpc";
+option php_metadata_namespace = "Autorus\\CarService\\Grpc\\GPBMetadata";
+
+option (grpc.gateway.protoc_gen_swagger.options.openapiv2_swagger) = {
+    host: "192.168.50.106:3333";
+};
+
+service CarService {
+    // Создание бренда
+    rpc CarBrandCreate (CarBrandCreateRequest) returns (CarBrandCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/car/brand"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Бренды автомобиля";
+        };
+    }
+
+    // Чтение бренда
+    rpc CarBrandRead (CarBrandReadRequest) returns (CarBrandReadResponse) {
+        option (google.api.http) = {
+            get: "/v1/car/brand/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Бренды автомобиля";
+        };
+    }
+
+    // Изменение бренда
+    rpc CarBrandUpdate (CarBrandUpdateRequest) returns (CarBrandUpdateResponse) {
+        option (google.api.http) = {
+            patch: "/v1/car/brand/{uuid}"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Бренды автомобиля";
+        };
+    }
+
+    // Удаление бренда
+    rpc CarBrandDelete (CarBrandDeleteRequest) returns (CarBrandDeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/car/brand/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Бренды автомобиля";
+        };
+    }
+
+    // Список брендов
+    rpc CarBrandList (CarBrandListRequest) returns (CarBrandListResponse) {
+        option (google.api.http) = {
+            get: "/v1/car/brand"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Бренды автомобиля";
+        };
+    }
+
+    // Создание класса
+    rpc CarClassCreate (CarClassCreateRequest) returns (CarClassCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/car/class"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Бренды автомобиля";
+        };
+    }
+
+    // Чтение класса
+    rpc CarClassRead (CarClassReadRequest) returns (CarClassReadResponse) {
+        option (google.api.http) = {
+            get: "/v1/car/class/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Классы автомобиля";
+        };
+    }
+
+    // Изменение класса
+    rpc CarClassUpdate (CarClassUpdateRequest) returns (CarClassUpdateResponse) {
+        option (google.api.http) = {
+            patch: "/v1/car/class/{uuid}"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Классы автомобиля";
+        };
+    }
+
+    // Удаление класса
+    rpc CarClassDelete (CarClassDeleteRequest) returns (CarClassDeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/car/class/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Классы автомобиля";
+        };
+    }
+
+    // Список классов
+    rpc CarClassList (CarClassListRequest) returns (CarClassListResponse) {
+        option (google.api.http) = {
+            get: "/v1/car/class"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Классы автомобиля";
+        };
+    }
+
+    // Создание модели
+    rpc CarModelCreate (CarModelCreateRequest) returns (CarModelCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/car/model"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Модели автомобиля";
+        };
+    }
+
+    // Чтение модели
+    rpc CarModelRead (CarModelReadRequest) returns (CarModelReadResponse) {
+        option (google.api.http) = {
+            get: "/v1/car/model/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Модели автомобиля";
+        };
+    }
+
+    // Изменение модели
+    rpc CarModelUpdate (CarModelUpdateRequest) returns (CarModelUpdateResponse) {
+        option (google.api.http) = {
+            patch: "/v1/car/model/{uuid}"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Модели автомобиля";
+        };
+    }
+
+    // Удаление модели
+    rpc CarModelDelete (CarModelDeleteRequest) returns (CarModelDeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/car/model/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Модели автомобиля";
+        };
+    }
+
+    // Список моделей
+    rpc CarModelList (CarModelListRequest) returns (CarModelListResponse) {
+        option (google.api.http) = {
+            get: "/v1/car/model"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Модели автомобиля";
+        };
+    }
+
+    // Создание работы
+    rpc WorkCreate (WorkCreateRequest) returns (WorkCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/work"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Работы";
+        };
+    }
+
+    // Чтение работы
+    rpc WorkRead (WorkReadRequest) returns (WorkReadResponse) {
+        option (google.api.http) = {
+            get: "/v1/work/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Работы";
+        };
+    }
+
+    // Изменение работы
+    rpc WorkUpdate (WorkUpdateRequest) returns (WorkUpdateResponse) {
+        option (google.api.http) = {
+            patch: "/v1/work/{uuid}"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Работы";
+        };
+    }
+
+    // Удаление работы
+    rpc WorkDelete (WorkDeleteRequest) returns (WorkDeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/work/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Работы";
+        };
+    }
+
+    // Список работ
+    rpc WorkList (WorkListRequest) returns (WorkListResponse) {
+        option (google.api.http) = {
+            get: "/v1/work"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Работы";
+        };
+    }
+
+    // Создание группы
+    rpc WorkGroupCreate (WorkGroupCreateRequest) returns (WorkGroupCreateResponse) {
+        option (google.api.http) = {
+            post: "/v1/workgroup"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Группы работ";
+        };
+    }
+
+    // Чтение группы
+    rpc WorkGroupRead (WorkGroupReadRequest) returns (WorkGroupReadResponse) {
+        option (google.api.http) = {
+            get: "/v1/workgroup/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Группы работ";
+        };
+    }
+
+    // Изменение группы
+    rpc WorkGroupUpdate (WorkGroupUpdateRequest) returns (WorkGroupUpdateResponse) {
+        option (google.api.http) = {
+            patch: "/v1/workgroup/{uuid}"
+            body: "*"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Группы работ";
+        };
+    }
+
+    // Удаление группы
+    rpc WorkGroupDelete (WorkGroupDeleteRequest) returns (WorkGroupDeleteResponse) {
+        option (google.api.http) = {
+            delete: "/v1/workgroup/{uuid}"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Группы работ";
+        };
+    }
+
+    // Список групп
+    rpc WorkGroupList (WorkGroupListRequest) returns (WorkGroupListResponse) {
+        option (google.api.http) = {
+            get: "/v1/workgroup"
+        };
+
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_operation) = {
+            tags: "Группы работ";
+        };
+    }
+}
+
+message Violation {
+    string message = 1;
+    string property = 2;
+}
+
+message CarBrandCreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+}
+
+message CarBrandCreateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    repeated Violation violations = 3;
+}
+
+message CarBrandReadRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID бренда
+    string uuid = 1;
+}
+
+message CarBrandReadResponse {
+    message Data {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+    }
+
+    string status = 1;
+    Data data = 2;
+    string message = 3;
+}
+
+message CarBrandUpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+}
+
+message CarBrandUpdateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+    repeated Violation violations = 4;
+}
+
+message CarBrandDeleteRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID бренда
+    string uuid = 1;
+}
+
+message CarBrandDeleteResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+}
+
+message CarBrandListRequest {
+    int32 page = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "1"}];
+    int32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "50"}];
+}
+
+message CarBrandListResponse {
+    message CarBrandItem {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+    }
+
+    message Data {
+        repeated CarBrandItem items = 1;
+        int32 total_count = 2;
+    }
+
+    string status = 1;
+    Data data = 2;
+}
+
+message CarClassCreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string hour_cost = 3;
+}
+
+message CarClassCreateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    repeated Violation violations = 3;
+}
+
+message CarClassReadRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID класса
+    string uuid = 1;
+}
+
+message CarClassReadResponse {
+    message Data {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string hour_cost = 3;
+    }
+
+    string status = 1;
+    Data data = 2;
+    string message = 3;
+}
+
+message CarClassUpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string hour_cost = 3;
+}
+
+message CarClassUpdateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+    repeated Violation violations = 4;
+}
+
+message CarClassDeleteRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID класса
+    string uuid = 1;
+}
+
+message CarClassDeleteResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+}
+
+message CarClassListRequest {
+    int32 page = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "1"}];
+    int32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "50"}];
+}
+
+message CarClassListResponse {
+    message CarClassItem {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string hour_cost = 3;
+    }
+
+    message Data {
+        repeated CarClassItem items = 1;
+        int32 total_count = 2;
+    }
+
+    string status = 1;
+    Data data = 2;
+}
+
+message CarModelCreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_brand": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_class": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string car_brand = 3;
+    string car_class = 4;
+}
+
+message CarModelCreateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    repeated Violation violations = 3;
+    string message = 4;
+}
+
+message CarModelReadRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID модели
+    string uuid = 1;
+}
+
+message CarModelReadResponse {
+    message Data {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_brand": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_class": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string car_brand = 3;
+        string car_class = 4;
+    }
+
+    string status = 1;
+    Data data = 2;
+    string message = 3;
+}
+
+message CarModelUpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_brand": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_class": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string car_brand = 3;
+    string car_class = 4;
+}
+
+message CarModelUpdateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+    repeated Violation violations = 4;
+}
+
+message CarModelDeleteRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID модели
+    string uuid = 1;
+}
+
+message CarModelDeleteResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+}
+
+message CarModelListRequest {
+    int32 page = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "1"}];
+    int32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "50"}];
+}
+
+message CarModelListResponse {
+    message CarModelItem {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_brand": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "car_class": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string car_brand = 3;
+        string car_class = 4;
+    }
+
+    message Data {
+        repeated CarModelItem items = 1;
+        int32 total_count = 2;
+    }
+
+    string status = 1;
+    Data data = 2;
+}
+
+message WorkCreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string work_group = 3;
+    string time = 4;
+}
+
+message WorkCreateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    repeated Violation violations = 3;
+    string message = 4;
+}
+
+message WorkReadRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID работы
+    string uuid = 1;
+}
+
+message WorkReadResponse {
+    message Data {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string work_group = 3;
+        string time = 4;
+    }
+
+    string status = 1;
+    Data data = 2;
+    string message = 3;
+}
+
+message WorkUpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string work_group = 3;
+    string time = 4;
+}
+
+message WorkUpdateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+    repeated Violation violations = 4;
+}
+
+message WorkDeleteRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID работы
+    string uuid = 1;
+}
+
+message WorkDeleteResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+}
+
+message WorkListRequest {
+    int32 page = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "1"}];
+    int32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "50"}];
+}
+
+message WorkListResponse {
+    message WorkItem {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string work_group = 3;
+        string time = 4;
+    }
+
+    message Data {
+        repeated WorkItem items = 1;
+        int32 total_count = 2;
+    }
+
+    string status = 1;
+    Data data = 2;
+}
+
+message WorkGroupCreateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "parent_work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string parent_work_group = 3;
+}
+
+message WorkGroupCreateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    repeated Violation violations = 3;
+    string message = 4;
+}
+
+message WorkGroupReadRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID группы
+    string uuid = 1;
+}
+
+message WorkGroupReadResponse {
+    message Data {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "parent_work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string parent_work_group = 3;
+    }
+
+    string status = 1;
+    Data data = 2;
+    string message = 3;
+}
+
+message WorkGroupUpdateRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "parent_work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    string uuid = 1;
+    string title = 2;
+    string parent_work_group = 3;
+}
+
+message WorkGroupUpdateResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+    repeated Violation violations = 4;
+}
+
+message WorkGroupDeleteRequest {
+    option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+        example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+    };
+
+    // UUID группы
+    string uuid = 1;
+}
+
+message WorkGroupDeleteResponse {
+    string status = 1;
+    repeated google.protobuf.Empty data = 2;
+    string message = 3;
+}
+
+message WorkGroupListRequest {
+    int32 page = 1 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "1"}];
+    int32 limit = 2 [(grpc.gateway.protoc_gen_swagger.options.openapiv2_field) = {default: "50"}];
+}
+
+message WorkGroupListResponse {
+    message WorkGroupItem {
+        option (grpc.gateway.protoc_gen_swagger.options.openapiv2_schema) = {
+            example: { value: '{ "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6", "parent_work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6" }' }
+        };
+
+        string uuid = 1;
+        string title = 2;
+        string parent_work_group = 3;
+    }
+
+    message Data {
+        repeated WorkGroupItem items = 1;
+        int32 total_count = 2;
+    }
+
+    string status = 1;
+    Data data = 2;
+}

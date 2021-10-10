@@ -1,0 +1,1497 @@
+# @media = %HOST%
+# @garage = %HOST%
+# @sns = %HOST%
+# @search = %HOST%
+# @catalog = %HOST%
+
+# @gateway = %HOST%
+
+@key = 1
+@token = 1
+
+
+
+###
+# @name getPartsSearch
+GET http://%HOST%/v1/parts/search
+?1=1
+&article=6CT-60.0
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+
+###
+# @name getPartsSearch
+GET http://%HOST%/v1/parts/search
+?1=1
+&article=6CT-60.0
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+###
+# @name postBrandStandardize
+
+POST  http://%HOST%/v1/brand/standardize
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+Accept-Encoding: gzip, deflate
+
+{
+  "titles": ["kia"]
+}
+
+
+########################################          PROXY SERVER          ########################################
+
+
+###
+# @name getKeyMyIp
+GET {{gateway}}/v1/key/my-ip
+Content-Type: application/json
+
+
+###
+# @name getKeyStatus
+GET {{gateway}}/v1/key/status
+Content-Type: application/json
+X-Api-Token: {{token}}
+
+
+###
+# @name postToken
+POST {{gateway}}/v1/token
+Content-Type: application/json
+
+{
+  "key": "{{key}}",
+  "user_id": "df584729-9d96-11e1-ade4-00224d4ce711",
+  "user_role": "grand",
+  "user_group": "grand",
+  "user_fullname": "Anatoly Nekhay",
+  "debug": true
+}
+
+
+###
+# @name patchToken
+PATCH {{gateway}}/v1/token/56e8714d-fb3e-4ec2-8122-d4f103899e78
+Content-Type: application/json
+
+{
+  "key": "{{key}}",
+  "user_id": "56e8714d-fb3e-4ec2-8122-d4f103899e78",
+  "user_role": "grand",
+  "user_group": "grand",
+  "user_fullname": "Anatoly Nekhay",
+  "debug": true
+}
+
+
+###
+# @name deleteToken
+DELETE {{gateway}}/v1/token/f57c39f3-fdbf-4b30-863b-505a7aaab7df
+Content-Type: application/json
+X-Api-Key: {{key}}
+
+
+########################################          BRANDS          ########################################
+
+
+###
+# @name getBrand
+GET {{gateway}}/v1/brand?1=1
+&page=1
+&limit=10
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name getBrandId
+GET {{gateway}}/v1/brand/4958
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name postBrandGetCodeByTitle
+
+POST {{gateway}}/v1/brand/get-code-by-title
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+Accept-Encoding: gzip, deflate
+
+[
+  "lada",
+  "toYota",
+  "4ab24cc2-3f1a-11e4-a4b4-9c8e99fbf56b"
+]
+
+
+###
+# @name patchBrand
+PATCH {{gateway}}/v1/brand/4958
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "external_id": null,
+  "code": null,
+  "title": "w1s1",
+  "picture": null,
+  "homepage": "http://comrade.fm",
+  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip entex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+  "meta_title": "jaffoo",
+  "meta_author": "Olivia Williams",
+  "meta_keywords": "foo, bar, baz, qux, quux, quuux",
+  "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "meta_canonical": "http://example.com/foo/bar",
+  "meta_robots": "index,follow",
+  "is_oem": false,
+  "country": "rUs"
+}
+
+
+###
+# @name postBrand
+POST {{gateway}}/v1/brand
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "external_id": null,
+  "code": null,
+  "title": "w1s1",
+  "picture": null,
+  "homepage": "http://example.com/",
+  "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip entex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+  "meta_title": "jaffoo",
+  "meta_author": "Olivia Williams",
+  "meta_keywords": "foo, bar, baz, qux, quux, quuux",
+  "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "meta_canonical": "http://example.com/foo/bar",
+  "meta_robots": "index,follow",
+  "is_oem": false,
+  "country": "rUs"
+}
+
+###
+# @name patchBrandSynchronize
+PATCH {{gateway}}/v1/brand/b249b164-1b49-11e9-a1ca-7b2fab590e82/synchronize
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+    "external_id": "b249b164-1b49-11e9-a1ca-7b2fab590e82",
+    "title": "w1s3",
+    "code": null,
+    "picture": null,
+    "homepage": "http://examplwe.com/",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip entex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "meta_title": "jaffoo",
+    "meta_author": "Olivia Williams",
+    "meta_keywords": "foo, bar, baz, qux, quux, quuux",
+    "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "meta_canonical": "http://example.com/foo/bar",
+    "meta_robots": "index,follow",
+    "is_oem": false,
+    "country": "rUs",
+    "aliases": [     
+      {
+        "title": "test22"
+      },
+      {
+        "title": "test222"
+      }       
+    ]
+  }
+
+
+###
+# @name patchBrandSynchronizeMultiple
+PATCH {{gateway}}/v1/brand/synchronize
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+[
+  {
+    "external_id": "b249b164-1b49-11e9-a1ca-7b2fab590e83",
+    "title": "w1s2",
+    "code": null,
+    "picture": null,
+    "homepage": "http://example.com/",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip entex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "meta_title": "jaffoo",
+    "meta_author": "Olivia Williams",
+    "meta_keywords": "foo, bar, baz, qux, quux, quuux",
+    "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "meta_canonical": "http://example.com/foo/bar",
+    "meta_robots": "index,follow",
+    "is_oem": false,
+    "country": "rUs",
+    "aliases": [
+      {
+        "title": "test1"
+      },
+      {
+        "title": "test22"
+      },
+      {
+        "title": "test222"
+      }       
+    ]
+  },
+  {
+    "external_id": "b249b164-1b49-11e9-a1ca-7b2fab590e82",
+    "title": "w1s3",
+    "code": null,
+    "picture": null,
+    "homepage": "htstp://examplwe.com/",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip entex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "meta_title": "jaffoo",
+    "meta_author": "Olivia Williams",
+    "meta_keywords": "foo, bar, baz, qux, quux, quuux",
+    "meta_description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "meta_canonical": "http://example.com/foo/bar",
+    "meta_robots": "index,follow",
+    "is_oem": false,
+    "country": "rUs",
+    "aliases": [
+      {
+        "title": "test1"
+      },
+      {
+        "title": "test22"
+      },
+      {
+        "title": "test222"
+      }       
+    ]
+  }  
+]
+
+
+###
+# @name postBrandAttachAlias
+POST {{gateway}}/v1/brand/5825/attach/alias
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "title": "ЭФКОd"
+}
+
+
+###
+# @name patchBrandAlias
+PATCH {{gateway}}/v1/brand/alias/9431
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "title": "ЭФКs222s11О"
+}
+
+
+###
+# @name patchBrandAliasTitle
+PATCH {{gateway}}/v1/brand/alias/title/10
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "old_title": "3rg",
+  "new_title": "ЭФКs222s11О"
+}
+
+
+###
+# @name patchBrandDocument
+PATCH {{gateway}}/v1/brand/document/1
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "title": "ЭФКs222s11О"
+}
+
+
+###
+# @name patchBrandDelete
+PATCH {{gateway}}/v1/brand/92/delete
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name getBrandStandardize
+
+GET {{gateway}}/v1/brand/standardize?title=vaz
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+Accept-Encoding: gzip, deflate
+
+
+###
+# @name postBrandStandardize
+
+POST {{gateway}}/v1/brand/standardize
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+Accept-Encoding: gzip, deflate
+
+{
+  "titles": ["KNECHT/MAHLE"]
+}
+
+
+###
+# @name getCountry
+GET {{gateway}}/v1/country
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name postCountry
+POST {{gateway}}/v1/country
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+{
+  "title": "testcountry",
+  "alpha_2": "qw",
+  "alpha_3": "asd"
+}
+
+
+###
+# @name getSiteBrand
+GET {{gateway}}/v1/site/brand?1=1
+&limit=111
+&page=1
+&letter=a
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name getSiteBrandByExternalId
+GET {{gateway}}/v1/site/brand/ca830916-0b2e-11e8-861f-c4346bb7a8f5
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name getSiteBrandSearch
+GET {{gateway}}/v1/site/brand/search
+?title=ada
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name getBrandCandidate
+GET {{gateway}}/v1/brand/candidate?limit=14
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name deleteBrandCandidate
+DELETE {{gateway}}/v1/brand/candidate/25
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name purgeBrandCache
+PURGE {{gateway}}/v1/brand/cache
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+###
+# @name purgeCatalogCache
+PURGE {{gateway}}/v1/brand/catalog/cache
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: brands
+
+
+########################################          SEARCH          ########################################
+
+
+###
+# @name getPartsSearch
+GET {{gateway}}/v1/parts/search
+?1=1
+&article=251002X200 
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+###
+# @name getPartsPrices
+POST {{gateway}}/v1/parts/prices
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+Content-Type: application/json
+
+{
+  "item": [
+    {
+      "id": null,
+      "article": "ab601",
+      "brand": "bolk"
+    }
+  ]
+}
+
+
+###
+# @name aarrrrrr
+POST http://%HOST%:8888/v1/parts/prices
+Content-Type: application/json
+
+{
+  "item": [
+    {   
+      "id": null,      
+      "article": "ab601",
+      "brand": "bolk"
+    }          
+  ]
+}
+
+
+###
+# @name laximoFindOem
+GET {{gateway}}/v1/laximo/find-oem
+?1=1
+&article=251002X200
+&brand=kia
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+###
+# @name laximoFindOem
+GET {{gateway}}/v1/laximo/find-detail/10042569
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+###
+# @name laximoManufacturerInfo
+GET {{gateway}}/v1/laximo/manufacturer-info/4136
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+###
+# @name laximoManufacturerList
+GET {{gateway}}/v1/laximo/manufacturer-list
+X-Api-Token: {{token}}
+X-Proxy-Service: search
+
+
+
+########################################          ADMIN          ########################################
+
+
+###
+# @name patchParameter
+PATCH {{gateway}}/v1/parameter
+X-Api-Token: {{token}}
+X-Proxy-Service: catalog
+Content-Type: application/json
+
+{
+
+}
+
+
+###
+# @name getSection
+GET {{gateway}}/v1/section
+X-Api-Token: {{token}}
+X-Proxy-Service: catalog
+
+
+
+########################################          SITE          ########################################
+
+
+###
+# @name postEntityReadMultiple
+POST {{gateway}}/site/v1/entity/read/multiple?limit=1&page=2
+X-Api-Token: {{token}}
+X-Proxy-Service: catalog
+Content-Type: application/json
+
+[
+
+]
+
+
+###
+# @name getPrimary
+GET {{gateway}}/site/v1/primary
+X-Api-Token: {{token}}
+X-Proxy-Service: catalog
+
+
+
+########################################          SUPPLIER          ########################################
+
+
+###
+# @name postSupplier
+POST {{gateway}}/v1/supplier
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": "3188ca82-d3f0-478d-aa53-86ab514db03d",
+  "title": "title",
+  "is_autorus": false,
+  "delivery_accepting_minutes": 0
+}
+
+###
+# @name getSupplier
+GET {{gateway}}/v1/supplier
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name getSupplierCache
+GET {{gateway}}/v1/supplier/cache
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name getSupplierById
+GET {{gateway}}/v1/supplier/75
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name patchSupplier
+PATCH {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab504db02d
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": "3188ca80-d3f0-478d-aa33-86ab514db03d",
+  "title": "title",
+  "is_autorus": false,
+  "delivery_accepting_minutes": 0
+}
+
+
+###
+# @name deleteSupplier
+DELETE {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab504db02d
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name purgeSupplierCache
+DELETE {{gateway}}/v1/supplier/cache
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+
+
+###
+# @name postSupplierScheduleSync
+POST {{gateway}}/v1/supplier/0aed51eb-9b15-11df-90f4-00226410eb93/working/schedule/sync
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+[
+  {
+    "day_number": 1,
+    "time_from": "11:00:00",
+    "time_to": "19:10:00"
+  }
+]
+
+
+###
+# @name postSupplierSchedule
+POST {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/schedule
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "day_number": 2,
+  "time_from": "10:00",
+  "time_to": "19:00"
+}
+
+
+###
+# @name getSupplierScheduleList
+GET {{gateway}}/v1/supplier/678ab001-cc6c-11df-a7c4-00226410eb93/working/schedule
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name getSupplierSchedule
+GET {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/schedule/1
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name patchSupplierSchedule
+PATCH {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/schedule/1
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "day_number": 1,
+  "time_from": "10:00",
+  "time_to": "19:00"
+}
+
+
+###
+# @name deleteSupplierSchedule
+DELETE {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/schedule/1
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name postSupplierExtradaySync
+POST {{gateway}}/v1/supplier/0aed51eb-9b15-11df-90f4-00226410eb93/working/extraday/sync
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+[
+  {
+    "date": "2022-01-10",
+    "is_working": true,
+    "time_from": "11:00:00",
+    "time_to": "19:10:00"
+  },
+  {
+    "date": "2022-01-11",
+    "is_working": false,
+    "time_from": null,
+    "time_to": "19:10:00"
+  },
+  {
+    "date": "2022-01-13",
+    "is_working": false,
+    "time_from": "12:00:00",
+    "time_to": "19:10:00"
+  }    
+]
+
+
+
+###
+# @name postSupplierExtraday
+POST {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/extraday
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "date": "2022-01-10",
+  "is_working": true,
+  "time_from": null,
+  "time_to": "11:00"
+}
+
+
+###
+# @name getSupplierExtraDayList
+GET {{gateway}}/v1/supplier/678ab001-cc6c-11df-a7c4-00226410eb93/working/extraday
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name getSupplierExtraDay
+GET {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/extraday/2022-01-10
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name patchSupplierExtraDay
+PATCH {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/extraday/2022-01-10
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "date": "2022-01-10",
+  "is_working": true,
+  "time_from": "09:00",
+  "time_to": null
+}
+
+
+###
+# @name deleteSupplierExtraDay
+DELETE {{gateway}}/v1/supplier/3188ca80-d3f0-478d-aa33-86ab514db03d/working/extraday/2022-01-10
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+
+########################################          OFFER          ########################################
+
+
+###
+# @name listOffer
+GET {{gateway}}/v1/offer
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name listOfferById
+POST http://%HOST%/v1/offer/list
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": ["4fa85f64-5717-4562-b9fc-2c963f66afa6", "97d9623e-6747-11e9-9c7e-88305c83e847"]
+}
+
+
+###
+# @name createOffer
+POST {{gateway}}/v1/offer
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": "3188ca80-d3f0-478d-aa33-86ab514db01d",
+  "supplier_from": "3188ca80-d3f0-478d-aa33-86ab514db03d",
+  "supplier_to": "3188ca80-d3f0-478d-aa33-86ab514db04d",
+  "order_initializing_minutes": 0,
+  "is_enabled": false
+}
+
+
+###
+# @name readOffer
+GET {{gateway}}/v1/offer/4fa85f64-5717-4562-b9fc-2c963f66afa6
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name updateOffer
+PATCH http://%HOST%/v1/offer/4fa85f64-5717-4562-b9fc-2c963f66afa6
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "supplier_from": "3fa85f64-5717-4562-b3fc-2c963f66afa7",
+  "supplier_to": "37532801-2201-11e0-80e8-00226410eb93",
+  "order_initializing_minutes": 30,
+  "is_enabled": true
+}
+
+
+###
+# @name deleteOffer
+DELETE {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name listDeliverySchedule
+GET {{gateway}}/v1/offer/97d9623e-6747-11e9-9c7e-88305c83e847/delivery/schedule
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name postDeliveryScheduleSync
+POST {{gateway}}/v1/offer/97d9623e-6747-11e9-9c7e-88305c83e847/delivery/schedule/sync
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+[
+  {
+    "day_number": 1,
+    "order_time": "11:00",
+    "delivery_minutes": 10
+  },
+  {
+    "day_number": 1,
+    "order_time": "17:00",
+    "delivery_minutes": 10
+  },  
+  {
+    "day_number": 1,
+    "order_time": "18:00",
+    "delivery_minutes": 10
+  }  
+]
+
+
+###
+# @name createDeliverySchedule
+POST {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/schedule
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "day_number": 2,
+  "order_time": "10:00",
+  "delivery_minutes": 1440
+}
+
+
+###
+# @name readDeliverySchedule
+GET {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/schedule/2
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name updateDeliverySchedule
+PATCH {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/schedule/2
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "day_number": 2,
+  "order_time": "11:30",
+  "delivery_minutes": 1440
+}
+
+
+###
+# @name deleteDeliverySchedule
+DELETE {{gateway}}/v1/offer/b92c2b17-62e9-11e7-aebc-9c8e99fbf566/delivery/schedule/4/time/16%3A00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name listDeliveryExtra
+GET {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/extra
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name postDeliveryExtraSync
+POST {{gateway}}/v1/offer/4fa85f64-5717-4562-b9fc-2c963f66afa6/delivery/extra/sync
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+[
+  {
+    "order_date": "2020-01-01 10:00",
+    "is_supply": true,
+    "delivery_date": "2021-01-01 10:00"
+  },
+  {
+    "order_date": "2020-01-02 10:00",
+    "is_supply": false,
+    "delivery_date": "2021-01-01 10:00"
+  }  ,
+  {
+    "order_date": "2020-01-12 10:00",
+    "is_supply": false,
+    "delivery_date": "2021-01-21 10:00"
+  }
+]
+
+
+
+###
+# @name createDeliveryExtra
+POST {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/extra
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "order_date": "2020-01-01 10:00",
+  "is_supply": false,
+  "delivery_date": null
+}
+
+
+###
+# @name readDeliveryExtra
+GET {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/extra/2020-01-01%2010%3A00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name updateDeliveryExtra
+PATCH {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/extra/2020-01-01%2010%3A00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "order_date": "2020-01-01 10:00",
+  "is_supply": true,
+  "delivery_date": "2020-01-02 10:00"
+}
+
+
+###
+# @name deleteDeliveryExtra
+DELETE {{gateway}}/v1/offer/3188ca80-d3f0-478d-aa33-86ab514db01d/delivery/extra/2020-01-01%2010%3A00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+
+########################################          SECTOR          ########################################
+
+
+###
+# @name listSector
+GET {{gateway}}/v1/sector
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name createSector
+POST {{gateway}}/v1/sector
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": "4188ca80-d3f0-478d-aa33-86ab514db01d",
+  "title": "sector title",
+  "supplier": "3188ca80-d3f0-478d-aa33-86ab514db03d",
+  "delivery_accepting_minutes": 0  
+}
+
+
+###
+# @name readSector
+GET {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name updateSector
+PATCH {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "uuid": "4188ca80-d3f0-478d-aa33-86ab514db01d",
+  "title": "sector title",
+  "supplier": "3188ca80-d3f0-478d-aa33-86ab514db03d",
+  "delivery_accepting_minutes": 110  
+}
+
+
+###
+# @name deleteSector
+DELETE {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name listDeliveryInterval
+GET {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d/delivery/interval
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name createDeliveryInterval
+POST {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d/delivery/interval
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "time_from": "10:00",
+  "time_to": "11:00"
+}
+
+
+###
+# @name readDeliveryInterval
+GET {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d/delivery/interval/10:00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name updateDeliveryInterval
+PATCH {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d/delivery/interval/10:00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+{
+  "time_from": "10:00",
+  "time_to": "13:00"
+}
+
+
+###
+# @name deleteDeliveryInterval
+DELETE {{gateway}}/v1/sector/4188ca80-d3f0-478d-aa33-86ab514db01d/delivery/interval/10:00
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+###
+# @name getDeliveryEstimate
+GET {{gateway}}/v1/delivery/estimate?1=1
+&offer_uuid=092c4b9d-56e2-11e9-80de-00505684472a
+&supplier_uuid=0aed51eb-9b15-11df-90f4-00226410eb93
+&shipping_method=pickup
+&sector_uuid=0aed55eb-9b15-11df-90f4-00226410eb93
+&delivery_date=2019-04-30
+X-Api-Token: {{token}}
+X-Proxy-Service: suppliers
+Content-Type: application/json
+
+
+
+########################################          CAR SERVICE          ########################################
+
+
+###
+# @name listCarClass
+GET {{gateway}}/v1/car/class
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name createCarClass
+POST {{gateway}}/v1/car/class
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "Class A",
+  "hour_cost": "100500.99"
+}
+
+
+###
+# @name readCarClass
+GET {{gateway}}/v1/car/class/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name updateCarClass
+PATCH {{gateway}}/v1/car/class/3fa85f64-5717-4562-b3fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "title": "Class AA",
+  "hour_cost": "11"
+}
+
+
+###
+# @name deleteCarClass
+DELETE {{gateway}}/v1/car/class/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name listCarBrand
+GET {{gateway}}/v1/car/brand?1=1
+&page=1
+&limit=1
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name createCarBrand
+POST {{gateway}}/v1/car/brand
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "Brand AAAA"
+}
+
+
+###
+# @name readCarBrand
+GET {{gateway}}/v1/car/brand/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name updateCarBrand
+PATCH {{gateway}}/v1/car/brand/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "Brand A"
+}
+
+
+###
+# @name deleteCarBrand
+DELETE {{gateway}}/v1/car/brand/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name listCarModel
+GET {{gateway}}/v1/car/model
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name createCarModel
+POST {{gateway}}/v1/car/model
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "Model A",
+  "car_brand": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "car_class": "4fa85f64-5717-4562-b9fc-2c963f66afa6"  
+}
+
+
+###
+# @name readCarModel
+GET {{gateway}}/v1/car/model/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name updateCarModel
+PATCH {{gateway}}/v1/car/model/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "Model As",
+  "car_brand": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "car_class": "4fa85f64-5717-4562-b9fc-2c963f66afa6"
+}
+
+
+###
+# @name deleteCarModel
+DELETE {{gateway}}/v1/car/model/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name listWorkGroup
+GET {{gateway}}/v1/workgroup
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name createWorkGroup
+POST {{gateway}}/v1/workgroup
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "WORKGROUP A",
+  "parent_work_group": null
+}
+
+
+###
+# @name readWorkGroup
+GET {{gateway}}/v1/workgroup/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name updateWorkGroup
+PATCH {{gateway}}/v1/workgroup/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "WORKGROUP ABBB",
+  "parent_work_group": ""
+}
+
+
+###
+# @name deleteWorkGroup
+DELETE {{gateway}}/v1/workgroup/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name listWork
+GET {{gateway}}/v1/work
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name createWork
+POST {{gateway}}/v1/work
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "WORK AA",
+  "work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "time": "0.125"
+}
+
+
+###
+# @name readWork
+GET {{gateway}}/v1/work/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+###
+# @name updateWork
+PATCH {{gateway}}/v1/work/4fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+{
+  "uuid": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "title": "Work A",
+  "work_group": "4fa85f64-5717-4562-b9fc-2c963f66afa6",
+  "time": "0.25"
+}
+
+
+###
+# @name deleteWork
+DELETE {{gateway}}/v1/work/7fa85f64-5717-4562-b9fc-2c963f66afa6
+Content-Type: application/json
+X-Api-Token: {{token}}
+X-Proxy-Service: garage
+
+
+
+########################################          IMG          ########################################
+
+
+###
+#
+# POST http://%HOST%/multifinderbrands.php
+
+[
+  {
+    "brand": "Сонар(Санкт - Петербург)",
+    "article": "пн45"
+  }  
+]
+
+protoc -I/usr/local/include -I. \
+-I$GOPATH/src \
+-I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+--php_out=src/Service \
+--php-grpc_out=src/Service \
+service.proto \
+&& \
+protoc -I/usr/local/include -I. \
+-I$GOPATH/src \
+-I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+--proto_path=. \
+--php_out=./client \
+--grpc_out=./client \
+--plugin=protoc-gen-grpc=/home/arus/grpc/bins/opt/grpc_php_plugin \
+service.proto
+
+
+protoc -I/usr/local/include -I. \
+-I$GOPATH/src \
+-I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+--grpc-gateway_out=logtostderr=true:. \
+service.proto
+
+
+protoc -I/usr/local/include -I. \
+-I$GOPATH/src \
+-I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+--swagger_out=logtostderr=true:. \
+service.proto
+
+go run src/gw/main.go
+
+
+
+///////////////////////
+
+./vendor/bin/openapi config/openapi.php src/Database/Entity src/Http/Controller/ --bootstrap config/openapi.php -o swagger.json
+reset && php -S 192.168.50.106:9090 index.php
+docker run -p 9099:8080 -e API_URL=http://%HOST%:9090/swagger.json swaggerapi/swagger-ui
+
+
+
+protoc -I/usr/local/include -I. \
+-I$GOPATH/src \
+-I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway \
+-I$GOPATH/src/github.com/grpc-ecosystem/grpc-gateway/third_party/googleapis \
+-I./src/Grpc \
+--plugin=protoc-gen-grpc=/home/arus/grpc/bins/opt/grpc_php_plugin \
+--proto_path=. \
+--go_out=plugins=grpc:. \
+--php_out=./src/Grpc \
+--grpc_out=./src/Grpc \
+--php-grpc_out=./src/Grpc \
+--grpc-gateway_out=logtostderr=true:. \
+--swagger_out=logtostderr=true:. \
+./service.proto
+
+protoc -I/usr/local/include -I. \
+-I$GOPATH/src \
+-I./src/Grpc \
+--plugin=protoc-gen-grpc=/home/arus/grpc/bins/opt/grpc_php_plugin \
+--proto_path=. \
+--go_out=plugins=grpc:. \
+--php_out=./src/Grpc \
+--grpc_out=./src/Grpc \
+--php-grpc_out=./src/Grpc \
+--grpc-gateway_out=logtostderr=true:. \
+--swagger_out=logtostderr=true:. \
+./service.proto
+
